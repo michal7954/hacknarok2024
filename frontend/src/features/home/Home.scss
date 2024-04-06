@@ -1,3 +1,19 @@
 .home {
   color: white;
 }
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+.avatar {
+  //background: red;
+}
+
+.posts {
+  border-radius: 30px;
+  background: #29025B;
+}
