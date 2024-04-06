@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 public class AiController {
@@ -17,8 +19,8 @@ public class AiController {
     }
 
     @PostMapping("/generatePostUsingMyStyle")
-    private ChatResponse generatePostUsingMyStyle(){
-        return aiService.generatePostUsingMyStyle();
+    private List<String> generatePostUsingMyStyle(@RequestBody String message){
+        return aiService.generatePostUsingMyStyle(message);
     }
     //TODO test it with accurate mock data
     @PostMapping("/ai/myMistakes")
