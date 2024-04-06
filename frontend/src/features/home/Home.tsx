@@ -12,29 +12,35 @@ export default function Home() {
 
   return (
     <div className="home">
-      <nav className="nav">
-        <Avatar alt="Avatar" variant="circular" className="avatar">
-          <PersonIcon />
-        </Avatar>
-        <Fab
-          variant="extended"
-          color="default"
-          size="large"
-        >
-          ADD EXISTING POST <AddIcon />
-        </Fab>
-        <Fab
-          variant="extended"
-          color="default"
-          size="large"
-        >
-          GENERATE NEW POST <AutoAwesomeIcon />
-        </Fab>
-      </nav>
+      <div className="header">
+        <div className="logo">
+          POST<br />
+          GENERATOR
+        </div>
+        <nav className="nav">
+          <Fab
+            variant="extended"
+            color="default"
+            size="large"
+          >
+            ADD EXISTING POST <AddIcon />
+          </Fab>
+          <Fab
+            variant="extended"
+            color="default"
+            size="large"
+          >
+            GENERATE NEW POST <AutoAwesomeIcon />
+          </Fab>
+          <Avatar alt="Avatar" variant="circular" className="avatar">
+            <PersonIcon />
+          </Avatar>
+        </nav>
+      </div>
       <div className="posts">
         {
           posts?.map((post) => (
-              <Post key={post.id} post={post} />
+            <Post key={post.id} post={post} />
           ))
         }
       </div>

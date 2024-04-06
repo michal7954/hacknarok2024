@@ -2,11 +2,26 @@
   color: white;
 }
 
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+}
+
+.logo {
+  font-family: Ribeye Marrow, serif;
+  font-size: 30px;
+  font-weight: 400;
+  letter-spacing: 0.46000000834465027px;
+  text-align: left;
+  color: #9747FF;
+}
+
 .nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
 }
 
 .avatar {
@@ -15,7 +30,8 @@
 
 .posts {
   border-radius: 30px;
-  background: #29025B;
+  background: #040404;
+
   padding: 30px;
   display: flex;
   flex-wrap: wrap;

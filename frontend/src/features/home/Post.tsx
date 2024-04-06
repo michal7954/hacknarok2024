@@ -25,12 +25,14 @@ export default function Post({ post }: { post: PostType }) {
               color="default"
               size="medium"
               variant="filled"
+              className="chip"
             />
             <Chip
               label={<><ThumbUpAltIcon /> {post.postStatisticReadDto.numberOfLikes}</>}
               color="default"
               size="medium"
               variant="filled"
+              className="chip"
             />
           </div>
 
