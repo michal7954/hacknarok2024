@@ -11,7 +11,7 @@ services:
       - app_network
   backend:
     build:
-      context: ../backend/
+      context: ../../backend/
       dockerfile: Dockerfile
     image: hackyeah2024_backend:latest
     ports:
@@ -19,15 +19,12 @@ services:
     depends_on:
       - nginx
     env_file:
-      - ../.env
+      - ../../.env
     networks:
       - app_network
-    volumes:
-      - ../src/main/resources:/app/src/main/resources
-      - ../temp/docker/logs:/temp/logs
   frontend:
     build:
-      context: ../frontend/
+      context: ../../frontend/
       dockerfile: Dockerfile
     image: hackyeah2024_frontend:latest
     ports:
