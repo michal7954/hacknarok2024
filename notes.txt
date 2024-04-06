@@ -1,0 +1,5 @@
+tell me how many comments we have
+give me the information how many followers have an account with id 1
+tell me how many posts have an account with id 1
+give me the number of views for post with id 1
+give me keywords for post with id 1
