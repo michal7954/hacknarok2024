@@ -13,14 +13,19 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
-public class Post {
+public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String content;
-    @ElementCollection
-    private List<String> keywords;
-    private String author;
-    @OneToOne
-    private PostStatistic postStatistic;
+    private String name;
+    private int age;
+    private Integer numberOfPosts;
+    private Integer numberOfFollowers;
+    private Integer numberOfViews;
+    private Integer numberOfComments;
+    private Integer numberOfShares;
+
+    @OneToMany
+    private List<Post> posts;
+
 }
