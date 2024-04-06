@@ -17,7 +17,7 @@ public class AiService {
     public ChatResponse chatWithAi(String message) {
         ChatResponse chatResponse = chatClient.call(new Prompt(message, OpenAiChatOptions.builder()
                 .withN(1)
-                .withFunctions(Set.of("getSinglePostFromDb","getPostStatisticFromDB"))
+                .withFunctions(Set.of("getAccountFromDb","getSinglePostFromDb", "getPostStatisticFromDb"))
                 .build()));
         return chatResponse;
     }

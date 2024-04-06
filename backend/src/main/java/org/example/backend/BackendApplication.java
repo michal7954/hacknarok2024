@@ -18,7 +18,7 @@ import java.util.Random;
 @SpringBootApplication
 public class BackendApplication {
     private static final Random random = new Random();
-    private final static Integer NUMBER_OF_ACCOUNTS = 3;
+    private final static Integer NUMBER_OF_ACCOUNTS = 1;
     private final static Integer NUMBER_OF_POSTS_PER_ACCOUNT = 10;
 
 
@@ -40,11 +40,11 @@ public class BackendApplication {
         Account account = new Account();
         account.setName("Name " + random.nextInt(20));
         account.setAge(random.nextInt(50));
-        account.setNumberOfPosts(NUMBER_OF_POSTS_PER_ACCOUNT);
+//        account.setNumberOfPosts(NUMBER_OF_POSTS_PER_ACCOUNT);
         account.setNumberOfFollowers(random.nextInt(1000));
-        account.setNumberOfViews(random.nextInt(10000));
-        account.setNumberOfComments(random.nextInt(1000));
-        account.setNumberOfShares(random.nextInt(500));
+//        account.setNumberOfViews(random.nextInt(10000));
+//        account.setNumberOfComments(random.nextInt(1000));
+//        account.setNumberOfShares(random.nextInt(500));
 
         List<Post> posts = generateRandomPosts(context);
         account.setPosts(posts);
@@ -86,7 +86,7 @@ public class BackendApplication {
         post.setKeywords(Arrays.asList("Keyword " + random.nextInt(20),
                 "Keyword " + random.nextInt(20),
                 "Keyword " + random.nextInt(20)));
-        post.setAuthor("Author " + random.nextInt(20));
+        post.setAuthor("Author");
         return post;
     }
 }
