@@ -19,11 +19,11 @@ public class Account {
     private Long id;
     private String name;
     private int age;
-    private Integer numberOfPosts;
+//    private Integer numberOfPosts;
     private Integer numberOfFollowers;
-    private Integer numberOfViews;
-    private Integer numberOfComments;
-    private Integer numberOfShares;
+//    private Integer numberOfViews;
+//    private Integer numberOfComments;
+//    private Integer numberOfShares;
 
     @OneToMany
     private List<Post> posts;
