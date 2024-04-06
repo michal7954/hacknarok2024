@@ -89,6 +89,8 @@ public class BackendApplication {
                 "Keyword " + random.nextInt(20)));
         post3.setAuthor("Author");
         post3.setPostStatistic(initPostStatisticsToDatabase(context));
+        posts.add(postRepository.save(post1));
+        posts.add(postRepository.save(post2));
         posts.add(postRepository.save(post3));
 
         return posts;
