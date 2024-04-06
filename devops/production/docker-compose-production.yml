@@ -26,9 +26,6 @@ services:
       - ../../.env
     networks:
       - app_network
-    volumes:
-      - ../src/main/resources:/app/src/main/resources
-      - ../temp/docker/logs:/temp/logs
   frontend:
     build:
       context: ../../frontend/
