@@ -3,6 +3,7 @@ package org.example.backend.ai;
 import lombok.RequiredArgsConstructor;
 import org.example.backend.GeneratePostRequestDto;
 import org.springframework.ai.chat.ChatResponse;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
+@CrossOrigin("*")
 public class AiController {
     private final AiService aiService;
     private final IWasWrongAiService iWasWrongAiService;
@@ -38,6 +40,6 @@ public class AiController {
     //TODO test it with accurate mock data
     @PostMapping("/ai/conclusions")
     private ChatResponse showConclusions(@RequestBody String message) {
-        return iWasWrongAiService.whatCanIImproveMyFuthurePosts(message);
+        return iWasWrongAiService.whatCanIImproveMyFuturePosts(message);
     }
 }

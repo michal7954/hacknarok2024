@@ -17,6 +17,7 @@ import java.util.List;
 @RestController
 @RequestMapping(path = "${api.prefix}/author")
 @RequiredArgsConstructor
+@CrossOrigin("*")
 public class PostController {
     private final PostService postService;
 

@@ -13,34 +13,36 @@ import java.util.Set;
 @RequiredArgsConstructor
 
 public class IWasWrongAiService {
-    private final String falitureMessages=
-                    """
-                    >As Expirienced copywriter explain why this post is not good use other functions for populate data.
-                    >Analise other posts.
+    private final String falitureMessages =
+            """
+                    >Explain why this post is not good use other functions for populate data.
+                    >Analise other posts if it is nessesary.
                     >Write only in string not in markdown code.
                     >Answer in language of user message not with prefix (>)
-                    
+                                        
                     """;
-    private final String improvementMessage=
+    private final String improvementMessage =
             """
-            >As Expirienced copywriter explain how this post could be better use other functions for populate data.
-            >Analise other posts if it is nessesary.
-            >Write only in string not in markdown code.
-            >Answer in language of user message not with prefix (>)
-            
-            """;
+                    >Explain how this post could be better use other functions for populate data.
+                    >Analise other posts if it is nessesary.
+                    >Write only in string not in markdown code.
+                    >Answer in language of user message not with prefix (>)
+                                
+                    """;
     private final OpenAiChatClient chatClient;
+
     public ChatResponse whereIHasMadeMistake(String message) {
-        ChatResponse chatResponse = chatClient.call(new Prompt(falitureMessages+message, OpenAiChatOptions.builder()
+        ChatResponse chatResponse = chatClient.call(new Prompt(falitureMessages + message, OpenAiChatOptions.builder()
                 .withN(1)
-                .withFunctions(Set.of("getAccountFromDb","getSinglePostFromDb", "getPostStatisticFromDb"))
+                .withFunctions(Set.of("getAccountFromDb", "getSinglePostFromDb", "getPostStatisticFromDb"))
                 .build()));
         return chatResponse;
     }
-    public ChatResponse whatCanIImproveMyFuthurePosts(String message) {
-        ChatResponse chatResponse = chatClient.call(new Prompt(improvementMessage+message, OpenAiChatOptions.builder()
+
+    public ChatResponse whatCanIImproveMyFuturePosts(String message) {
+        ChatResponse chatResponse = chatClient.call(new Prompt(improvementMessage + message, OpenAiChatOptions.builder()
                 .withN(1)
-                .withFunctions(Set.of("getAccountFromDb","getSinglePostFromDb", "getPostStatisticFromDb"))
+                .withFunctions(Set.of("getAccountFromDb", "getSinglePostFromDb", "getPostStatisticFromDb"))
                 .build()));
         return chatResponse;
     }
