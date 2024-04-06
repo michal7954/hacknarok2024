@@ -9,6 +9,24 @@ type HelloWithContent = {
   language: string,
 }
 
+export type PostType = {
+  id: number,
+  content: string,
+  postStatisticReadDto: {
+    'id': number,
+    'numberOfViews': number,
+    'numberOfLikes': number,
+    'numberOfComments': number,
+    'numberOfShares': number,
+    'engagementRate': number,
+    'numberOfImpressions': number,
+    'reach': number,
+    'clickThroughRate': number,
+    'conversionRate': number,
+    'averageTimeSpent': number,
+  }
+}
+
 export const defaultApi = createApi({
   reducerPath: 'defaultApi',
   baseQuery: fetchBaseQuery({
@@ -21,8 +39,13 @@ export const defaultApi = createApi({
         responseHandler: 'text',
       }),
     }),
+    getPosts: builder.query<Array<PostType>, void>({
+      query: () => ({
+        url: '/api/v1/author/posts',
+      }),
+    }),
   }),
 });
 
 
-export const { useGetHelloQuery } = defaultApi;
+export const { useGetHelloQuery, useGetPostsQuery } = defaultApi;

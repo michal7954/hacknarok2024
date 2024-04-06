@@ -4,8 +4,12 @@ import { Avatar, Fab } from '@mui/material';
 import PersonIcon from '@mui/icons-material/Person';
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 import AddIcon from '@mui/icons-material/Add';
+import { useGetPostsQuery } from 'features/server/defaultApi';
+import Post from 'features/home/Post';
 
 export default function Home() {
+  const {data: posts } = useGetPostsQuery();
+
   return (
     <div className="home">
       <nav className="nav">
@@ -28,7 +32,11 @@ export default function Home() {
         </Fab>
       </nav>
       <div className="posts">
-        Posts list
+        {
+          posts?.map((post) => (
+              <Post key={post.id} post={post} />
+          ))
+        }
       </div>
     </div>
   );
