@@ -2,6 +2,7 @@ package org.example.backend.ai;
 
 import lombok.extern.slf4j.Slf4j;
 import org.example.backend.ai.model.AccountAiModel;
+import org.example.backend.ai.model.AllPostAiModel;
 import org.example.backend.ai.model.PostAiModel;
 import org.example.backend.ai.model.PostStatisticAiModel;
 import org.example.backend.repository.AccountRepository;
@@ -33,6 +34,16 @@ public class AiConfiguration {
         {
             log.info("Geocode search request: {}", request);
             return new PostAiModel.Response(postRepository.findPostById(request.postId()).get());
+        };
+    }
+
+    @Bean
+    Function<PostAiModel.Request, AllPostAiModel.Response> getAllPostsFromDb(PostRepository postRepository) {
+        log.info("Creating post with request function");
+        return request ->
+        {
+            log.info("Geocode search request: {}", request);
+            return new AllPostAiModel.Response(postRepository.findAllPosts());
         };
     }
 

@@ -14,4 +14,9 @@ public class AiController {
     private ChatResponse chatWithAi(@RequestBody String message) {
         return aiService.chatWithAi(message);
     }
+
+    @PostMapping("/generatePostUsingMyStyle")
+    private ChatResponse generatePostUsingMyStyle(){
+        return aiService.generatePostUsingMyStyle();
+    }
 }
