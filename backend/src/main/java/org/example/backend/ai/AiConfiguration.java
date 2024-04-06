@@ -2,7 +2,9 @@ package org.example.backend.ai;
 
 import lombok.extern.slf4j.Slf4j;
 import org.example.backend.ai.model.PostAiModel;
+import org.example.backend.ai.model.PostStatisticAiModel;
 import org.example.backend.repository.AccountRepository;
+import org.example.backend.repository.PostStatisticRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -20,6 +22,16 @@ public class AiConfiguration {
         {
             log.info("Geocode search request: {}", request);
             return new PostAiModel.Response( accountRepository.findById(request.accountId()).get() );
+        };
+    }
+    @Bean
+    Function<PostStatisticAiModel.Request, PostStatisticAiModel.Response> getPostStatisticFromDB(PostStatisticRepository postStatisticRepository) {
+        log.info("Creating post with request function");
+
+        return request ->
+        {
+            log.info("Geocode search request: {}", request);
+            return new PostStatisticAiModel.Response( postStatisticRepository.findById(request.postStatisticId()).get() );
         };
     }
 
