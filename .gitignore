@@ -5,6 +5,10 @@
 /backend/!**/src/test/**/target/
 .env
 
+/frontend/node_modules
+/frontend/coverage
+/frontend/build
+
 ### STS ###
 .apt_generated
 .classpath

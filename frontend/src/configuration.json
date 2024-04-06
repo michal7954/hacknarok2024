@@ -1,0 +1,13 @@
+{
+  "api": {
+    "local": {
+      "host": "http://localhost:8080"
+    },
+    "remoteByIp": {
+      "host": "http://192.109.244.124:8080"
+    },
+    "remoteByDomain": {
+      "host": "https://hacknarok2024.ddns.net"
+    }
+  }
+}

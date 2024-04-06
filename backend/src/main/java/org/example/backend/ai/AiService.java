@@ -8,6 +8,8 @@ import org.springframework.ai.openai.OpenAiChatClient;
 import org.springframework.ai.openai.OpenAiChatOptions;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -22,16 +24,27 @@ public class AiService {
         return chatResponse;
     }
 
-    public ChatResponse generatePostUsingMyStyle() {
-        String message = """
-                My account id is 1.
-                For this account get all posts.
-                Based on these posts generate new similar one using my writing style.
-                Additionally, get my age from my account and add a sentence with this age on the beginning.
-                What important, this post have to be written in informal way and my target audience is from 18 to 35 years old.
-                """;
-        return chatClient.call(new Prompt(message,OpenAiChatOptions.builder()
-                .withFunctions(Set.of("getAllPostsFromDb", "getAccountFromDb"))
-                .build()));
+    public List<String> generatePostUsingMyStyle(String message) {
+//        String message = """
+//                My account id is 1.
+//                For this account get all posts.
+//                Based on these posts generate new similar one using my writing style.
+//                Additionally, get my age from my account and add a sentence with this age on the beginning.
+//                What important, this post have to be written in informal way and my target audience is from 18 to 35 years old.
+//                """;
+        List<String> responses=new ArrayList<>();
+        responses.add(chatClient.call(new Prompt(message, OpenAiChatOptions.builder()
+                .withN(1)
+                .withFunctions(Set.of("getAccountFromDb","getAllPostsFromDb"))
+                .build())).getResult().getOutput().getContent());
+        responses.add(chatClient.call(new Prompt(message, OpenAiChatOptions.builder()
+                .withN(1)
+                .withFunctions(Set.of("getAccountFromDb","getAllPostsFromDb"))
+                .build())).getResult().getOutput().getContent());
+        responses.add(chatClient.call(new Prompt(message, OpenAiChatOptions.builder()
+                .withN(1)
+                .withFunctions(Set.of("getAccountFromDb","getAllPostsFromDb"))
+                .build())).getResult().getOutput().getContent());
+        return responses;
     }
 }
