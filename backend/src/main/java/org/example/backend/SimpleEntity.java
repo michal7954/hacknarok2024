@@ -2,7 +2,7 @@ package org.example.backend;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-
+@Deprecated(forRemoval = true)
 @Entity
 public class SimpleEntity {
     @Id
