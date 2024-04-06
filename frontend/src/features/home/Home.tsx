@@ -6,29 +6,30 @@ import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 import AddIcon from '@mui/icons-material/Add';
 import { useGetPostsQuery } from 'features/server/defaultApi';
 import Post from 'features/home/Post';
+import { useNavigate } from 'react-router';
+import Logo from 'components/Logo';
 
 export default function Home() {
   const {data: posts } = useGetPostsQuery();
+  const navigate = useNavigate();
 
   return (
     <div className="home">
       <div className="header">
-        <div className="logo">
-          POST<br />
-          GENERATOR
-        </div>
+        <Logo />
         <nav className="nav">
           <Fab
             variant="extended"
             color="default"
             size="large"
           >
-            ADD EXISTING POST <AddIcon />
+            ADD EXISTING POSTS <AddIcon />
           </Fab>
           <Fab
             variant="extended"
             color="default"
             size="large"
+            onClick={() => navigate('/generate')}
           >
             GENERATE NEW POST <AutoAwesomeIcon />
           </Fab>

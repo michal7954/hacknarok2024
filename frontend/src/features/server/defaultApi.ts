@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import configuration from 'configuration.json';
+import { GeneratePostRequest, GeneratePostResponse } from 'features/server/Types';
 
 const host = configuration.api.local.host;
 
@@ -44,8 +45,15 @@ export const defaultApi = createApi({
         url: '/api/v1/author/posts',
       }),
     }),
+    getGeneratedPosts: builder.query<GeneratePostResponse, GeneratePostRequest>({
+      query: (body) => ({
+        url: '/generatePostUsingMyStyle',
+        method: 'POST',
+        body,
+      }),
+    }),
   }),
 });
 
 
-export const { useGetHelloQuery, useGetPostsQuery } = defaultApi;
+export const { useGetHelloQuery, useGetPostsQuery, useGetGeneratedPostsQuery } = defaultApi;
