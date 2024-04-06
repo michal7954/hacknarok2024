@@ -15,6 +15,11 @@ public class AiController {
     private ChatResponse chatWithAi(@RequestBody String message) {
         return aiService.chatWithAi(message);
     }
+
+    @PostMapping("/generatePostUsingMyStyle")
+    private ChatResponse generatePostUsingMyStyle(){
+        return aiService.generatePostUsingMyStyle();
+    }
     //TODO test it with accurate mock data
     @PostMapping("/ai/myMistakes")
     private ChatResponse showMyMistakes(@RequestBody String message) {
