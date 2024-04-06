@@ -4,6 +4,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.RequiredArgsConstructor;
 import org.example.backend.dto.request.PostWriteDto;
+import org.example.backend.dto.respond.PostAndStatsReadDto;
 import org.example.backend.dto.respond.PostReadDto;
 import org.example.backend.service.PostService;
 import org.springframework.http.HttpStatus;
@@ -29,14 +30,14 @@ public class PostController {
     }
 
     @GetMapping(path = "/posts/{postId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<PostReadDto> getPostById(
+    public ResponseEntity<PostAndStatsReadDto> getPostById(
             @Schema(defaultValue = "1")
             @PathVariable("postId") Long postId) {
         return ResponseEntity.ok(postService.getPostById(postId));
     }
 
     @GetMapping(path = "/posts", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<PostReadDto>> getPosts() {
+    public ResponseEntity<List<PostAndStatsReadDto>> getPosts() {
         return ResponseEntity.ok(postService.getPosts());
     }
 }
