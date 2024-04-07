@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import configuration from 'configuration.json';
 import { AddPostRequest, GeneratePostRequest, GeneratePostResponse, PostType, UserInfo } from 'features/server/Types';
 
-const host = configuration.api.local.host;
+const host = configuration.api.remoteByIp.host;
 
 export const defaultApi = createApi({
   reducerPath: 'defaultApi',

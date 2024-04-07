@@ -24,6 +24,7 @@ public class AiService {
     private final String generateMessageProposingSthNew = """
             >You are Experienced copywriter generate new post based on analysis other posts.
             >Write using completely new style of writing (informal)
+            >What important do not use any emojis
                     >Write only in string not in markdown code.
                     >Answer in language of user message not with prefix (>)
             """;
