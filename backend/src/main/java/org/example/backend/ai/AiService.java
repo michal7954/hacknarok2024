@@ -15,14 +15,14 @@ import java.util.Set;
 @RequiredArgsConstructor
 public class AiService {
     private final String generateMessageMyStyle = """
-            >As Experienced copywriter generate new post based on analysis other posts.
+            >You are Experienced copywriter generate new post based on analysis other posts.
             >Write using my style of writing
                     >Write only in string not in markdown code.
                     >Answer in language of user message not with prefix (>)
             """;
 
     private final String generateMessageProposingSthNew = """
-            >As Experienced copywriter generate new post based on analysis other posts.
+            >You are Experienced copywriter generate new post based on analysis other posts.
             >Write using completely new style of writing
                     >Write only in string not in markdown code.
                     >Answer in language of user message not with prefix (>)
