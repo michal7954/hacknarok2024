@@ -26,7 +26,7 @@ public class Account {
     private String yourInfo;
     @Lob
     @Column(length = 1000)
-    private String followerInfo;
+    private String followersInfo;
 //    private Integer numberOfViews;
 //    private Integer numberOfComments;
 //    private Integer numberOfShares;

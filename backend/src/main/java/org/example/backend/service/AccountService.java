@@ -13,15 +13,15 @@ public class AccountService {
 
     public UserInfoDto getAccountById(Long accountId) {
         Account account = accountRepository.findById(accountId).get();
-        return new UserInfoDto(account.getYourInfo(), account.getFollowerInfo());
+        return new UserInfoDto(account.getYourInfo(), account.getFollowersInfo());
     }
     public UserInfoDto saveUserInfo(Long accountId,UserInfoDto userInfoDto) {
         Account account = accountRepository.findById(accountId).get();
         account.setYourInfo(userInfoDto.yourInfo());
-        account.setFollowerInfo(userInfoDto.followerInfo());
+        account.setFollowersInfo(userInfoDto.followersInfo());
         accountRepository.save(account);
 
-        return new UserInfoDto(account.getYourInfo(), account.getFollowerInfo());
+        return new UserInfoDto(account.getYourInfo(), account.getFollowersInfo());
     }
 
 }

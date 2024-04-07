@@ -53,7 +53,7 @@ public class BackendApplication {
                 "\n" +
                 "\uD83D\uDCDD Let's Connect:\n" +
                 "If you share my passion for technology, health, or personal growth, I'd love to connect with you! Feel free to reach out, and let's explore how we can inspire and support each other on our respective journeys.");
-        account.setFollowerInfo("\uD83D\uDC4B Welcome to my LinkedIn profile! Here's a bit about who follows me:\n" +
+        account.setFollowersInfo("\uD83D\uDC4B Welcome to my LinkedIn profile! Here's a bit about who follows me:\n" +
                 "\n" +
                 "\uD83C\uDF1F Professionals: My followers include professionals from various industries, including software engineering, health and wellness, personal development, and more. They are individuals who are passionate about their careers, seeking opportunities for growth, and interested in networking with like-minded professionals.\n" +
                 "\n" +
