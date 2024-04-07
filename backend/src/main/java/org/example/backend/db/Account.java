@@ -21,7 +21,11 @@ public class Account {
     private int age;
 //    private Integer numberOfPosts;
     private Integer numberOfFollowers;
+    @Lob
+    @Column(length = 1000)
     private String yourInfo;
+    @Lob
+    @Column(length = 1000)
     private String followerInfo;
 //    private Integer numberOfViews;
 //    private Integer numberOfComments;
