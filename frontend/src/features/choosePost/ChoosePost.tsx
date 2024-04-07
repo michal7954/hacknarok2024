@@ -1,10 +1,7 @@
 import React from 'react';
 import './ChoosePost.scss';
-import { Avatar, Fab } from '@mui/material';
+import { Fab } from '@mui/material';
 import PersonIcon from '@mui/icons-material/Person';
-import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
-import AddIcon from '@mui/icons-material/Add';
-import { useGetPostsQuery } from 'features/server/defaultApi';
 import PostToChoose from 'features/choosePost/PostToChoose';
 import { useNavigate } from 'react-router';
 import Logo from 'components/Logo';
@@ -20,9 +17,14 @@ export default function ChoosePost() {
       <div className="header">
         <Logo />
         <nav className="nav">
-          <Avatar alt="Avatar" variant="circular" className="avatar">
+          <Fab
+            variant="circular"
+            color="default"
+            size="medium"
+            onClick={() => navigate('/userInfo')}
+          >
             <PersonIcon />
-          </Avatar>
+          </Fab>
         </nav>
       </div>
       <div className="posts">

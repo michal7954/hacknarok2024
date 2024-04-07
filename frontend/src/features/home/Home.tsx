@@ -42,9 +42,14 @@ export default function Home() {
           >
             GENERATE NEW POST <AutoAwesomeIcon />
           </Fab>
-          <Avatar alt="Avatar" variant="circular" className="avatar">
+          <Fab
+            variant="circular"
+            color="default"
+            size="medium"
+            onClick={() => navigate('/userInfo')}
+          >
             <PersonIcon />
-          </Avatar>
+          </Fab>
         </nav>
       </div>
       <div className="posts">

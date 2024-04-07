@@ -32,3 +32,8 @@ export type GeneratePostResponse = [string, string, string]
 export type AddPostRequest = {
   content: string,
 }
+
+export type UserInfo = {
+  yourInfo: string,
+  followersInfo: string,
+}
