@@ -16,14 +16,14 @@ import java.util.Set;
 public class AiService {
     private final String generateMessageMyStyle = """
             >You are Experienced copywriter generate new post based on analysis other posts.
-            >Write using my style of writing
+            >Write using my style of writing(formal), add also emojis which i am using in my previous posts
                     >Write only in string not in markdown code.
                     >Answer in language of user message not with prefix (>)
             """;
 
     private final String generateMessageProposingSthNew = """
             >You are Experienced copywriter generate new post based on analysis other posts.
-            >Write using completely new style of writing
+            >Write using completely new style of writing (informal)
                     >Write only in string not in markdown code.
                     >Answer in language of user message not with prefix (>)
             """;
