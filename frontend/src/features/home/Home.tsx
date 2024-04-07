@@ -1,6 +1,6 @@
 import React from 'react';
 import './Home.scss';
-import { Avatar, Fab } from '@mui/material';
+import { Fab } from '@mui/material';
 import PersonIcon from '@mui/icons-material/Person';
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 import { useGetPostsQuery } from 'features/server/defaultApi';
@@ -38,12 +38,18 @@ export default function Home() {
             color="default"
             size="large"
             onClick={() => navigate('/generate')}
+            className="generate-post"
           >
             GENERATE NEW POST <AutoAwesomeIcon />
           </Fab>
-          <Avatar alt="Avatar" variant="circular" className="avatar">
+          <Fab
+            variant="circular"
+            color="default"
+            size="medium"
+            onClick={() => navigate('/userInfo')}
+          >
             <PersonIcon />
-          </Avatar>
+          </Fab>
         </nav>
       </div>
       <div className="posts">

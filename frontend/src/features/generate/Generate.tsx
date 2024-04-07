@@ -1,6 +1,6 @@
 import React from 'react';
 import './Generate.scss';
-import { Avatar, Fab, TextField } from '@mui/material';
+import { Fab, TextField } from '@mui/material';
 import PersonIcon from '@mui/icons-material/Person';
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 import { defaultApi } from 'features/server/defaultApi';
@@ -35,9 +35,14 @@ export default function Generate() {
       <div className="header">
         <Logo />
         <nav className="nav">
-          <Avatar alt="Avatar" variant="circular" className="avatar">
+          <Fab
+            variant="circular"
+            color="default"
+            size="medium"
+            onClick={() => navigate('/userInfo')}
+          >
             <PersonIcon />
-          </Avatar>
+          </Fab>
         </nav>
       </div>
       <div className="content">
@@ -84,7 +89,7 @@ export default function Generate() {
             <Box sx={{ display: 'flex', marginLeft: '8px' }}>
               <CircularProgress size={20} />
             </Box>
-            : <AutoAwesomeIcon />}
+            : <AutoAwesomeIcon sx={{ marginLeft: '8px' }} />}
           </Fab>
         </div>
       </div>

@@ -18,11 +18,11 @@
     display: flex;
     gap: 8px;
     background: #FF7979DE;
-
-    &:nth-child(3) {
-      background: #B25DF5B5;
-    }
   }
+}
+
+.generate-post {
+  background: #B25DF5B5;
 }
 
 .avatar {
