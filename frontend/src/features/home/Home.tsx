@@ -3,11 +3,12 @@ import './Home.scss';
 import { Avatar, Fab } from '@mui/material';
 import PersonIcon from '@mui/icons-material/Person';
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
-import AddIcon from '@mui/icons-material/Add';
 import { useGetPostsQuery } from 'features/server/defaultApi';
 import { useNavigate } from 'react-router';
 import Logo from 'components/Logo';
 import Post from './Post';
+import YoutubeSearchedForIcon from '@mui/icons-material/YoutubeSearchedFor';
+import NotificationImportantIcon from '@mui/icons-material/NotificationImportant';
 
 export default function Home() {
   const {data: posts } = useGetPostsQuery();
@@ -23,7 +24,14 @@ export default function Home() {
             color="default"
             size="large"
           >
-            ADD EXISTING POSTS <AddIcon />
+            REVIEW <YoutubeSearchedForIcon />
+          </Fab>
+          <Fab
+            variant="extended"
+            color="default"
+            size="large"
+          >
+            GET TOPIC <NotificationImportantIcon />
           </Fab>
           <Fab
             variant="extended"
