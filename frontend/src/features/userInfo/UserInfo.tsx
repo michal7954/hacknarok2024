@@ -2,18 +2,28 @@ import React from 'react';
 import './UserInfo.scss';
 import { Fab, TextField } from '@mui/material';
 import PersonIcon from '@mui/icons-material/Person';
-import { useGetUserInfoQuery, useSetUserInfoMutation } from 'features/server/defaultApi';
+import { defaultApi, useSetUserInfoMutation } from 'features/server/defaultApi';
 import { useNavigate } from 'react-router';
 import Logo from 'components/Logo';
+import { useAppDispatch } from 'app/hooks';
 
 export default function UserInfo() {
-  const { data: userInfo } = useGetUserInfoQuery();
   const [ setUserInfo ] = useSetUserInfoMutation();
-
-  const [ yourInfo, setYourInfo ] = React.useState(userInfo?.yourInfo || '');
-  const [ followersInfo, setFollowersInfo ] = React.useState(userInfo?.followersInfo || '');
-
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
+
+  const [ yourInfo, setYourInfo ] = React.useState( '');
+  const [ followersInfo, setFollowersInfo ] = React.useState('');
+
+  React.useEffect(() => {
+    const setFormData = async () => {
+      const promise = dispatch(defaultApi.endpoints.getUserInfo.initiate());
+      const { data} = await promise;
+      setYourInfo(data?.yourInfo || '');
+      setFollowersInfo(data?.followersInfo || '');
+    }
+    void setFormData();
+  }, []);
 
   const handleSave = () => {
     setUserInfo({ yourInfo, followersInfo });
