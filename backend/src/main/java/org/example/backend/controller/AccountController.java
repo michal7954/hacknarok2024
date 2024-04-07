@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class AccountController {
     private final AccountService accountService;
-    @GetMapping("/user-info")
+    @GetMapping("/userInfo")
     public UserInfoDto getUserInfo() {
         UserInfoDto userInfo = accountService.getAccountById(1L);
         return userInfo;
     }
-    @PostMapping("/user-info")
+    @PostMapping("/userInfo")
     public UserInfoDto postUserInfo(@RequestBody UserInfoDto userInfo) {
         accountService.saveUserInfo(1L, userInfo);
         return userInfo;
