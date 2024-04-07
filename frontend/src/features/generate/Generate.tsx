@@ -84,7 +84,7 @@ export default function Generate() {
             <Box sx={{ display: 'flex', marginLeft: '8px' }}>
               <CircularProgress size={20} />
             </Box>
-            : <AutoAwesomeIcon />}
+            : <AutoAwesomeIcon sx={{ marginLeft: '8px' }} />}
           </Fab>
         </div>
       </div>
