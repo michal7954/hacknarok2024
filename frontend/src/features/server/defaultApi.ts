@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import configuration from 'configuration.json';
-import { GeneratePostRequest, GeneratePostResponse } from 'features/server/Types';
+import { AddPostRequest, GeneratePostRequest, GeneratePostResponse } from 'features/server/Types';
 
 const host = configuration.api.local.host;
 
@@ -33,6 +33,7 @@ export const defaultApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: host,
   }),
+  tagTypes: ['Post'],
   endpoints: (builder) => ({
     getHello: builder.query<string, void>({
       query: () => ({
@@ -44,6 +45,7 @@ export const defaultApi = createApi({
       query: () => ({
         url: '/api/v1/author/posts',
       }),
+      providesTags: ['Post'],
     }),
     getGeneratedPosts: builder.query<GeneratePostResponse, GeneratePostRequest>({
       query: (body) => ({
@@ -52,8 +54,21 @@ export const defaultApi = createApi({
         body,
       }),
     }),
+    addPost: builder.mutation<void, AddPostRequest>({
+      query: (body) => ({
+        url: '/api/v1/author/posts',
+        method: 'POST',
+        body,
+      }),
+      invalidatesTags: ['Post'],
+    }),
   }),
 });
 
 
-export const { useGetHelloQuery, useGetPostsQuery, useGetGeneratedPostsQuery } = defaultApi;
+export const {
+  useGetHelloQuery,
+  useGetPostsQuery,
+  useGetGeneratedPostsQuery,
+  useAddPostMutation,
+} = defaultApi;

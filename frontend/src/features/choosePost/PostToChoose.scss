@@ -1,0 +1,34 @@
+.post-to-choose {
+  flex-grow: 1;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+
+  &__fab {
+    width: fit-content;
+    margin: 0 auto;
+    margin-top: 32px;
+    background: #F9FB98;
+  }
+}
+
+.card {
+  height: 100%;
+  border-radius: 16px;
+}
+
+.chips {
+  margin-top: 16px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+
+  .chip {
+    background: #F9FB98B8;
+  }
+
+  svg {
+    font-size: small;
+    vertical-align: top;
+  }
+}
