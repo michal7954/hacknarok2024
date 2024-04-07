@@ -1,0 +1,30 @@
+.choose-post {
+  color: white;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.avatar {
+  //background: red;
+}
+
+.posts {
+  border-radius: 30px;
+  background: #040404;
+
+  padding: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}

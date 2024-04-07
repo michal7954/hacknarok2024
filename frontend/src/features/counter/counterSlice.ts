@@ -13,7 +13,7 @@ const initialState: CounterState = {
   value: 0,
   status: 'idle',
   message: '',
-  generatedPosts: [],
+  generatedPosts: ['1', '2', '3'],
 };
 
 // The function below is called a thunk and allows us to perform async logic. It

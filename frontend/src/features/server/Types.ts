@@ -4,3 +4,7 @@ export type GeneratePostRequest = {
 }
 
 export type GeneratePostResponse = [string, string, string]
+
+export type AddPostRequest = {
+  content: string,
+}
