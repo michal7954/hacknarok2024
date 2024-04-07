@@ -53,7 +53,17 @@ public class BackendApplication {
                 "\n" +
                 "\uD83D\uDCDD Let's Connect:\n" +
                 "If you share my passion for technology, health, or personal growth, I'd love to connect with you! Feel free to reach out, and let's explore how we can inspire and support each other on our respective journeys.");
-        account.setFollowerInfo("");
+        account.setFollowerInfo("\uD83D\uDC4B Welcome to my LinkedIn profile! Here's a bit about who follows me:\n" +
+                "\n" +
+                "\uD83C\uDF1F Professionals: My followers include professionals from various industries, including software engineering, health and wellness, personal development, and more. They are individuals who are passionate about their careers, seeking opportunities for growth, and interested in networking with like-minded professionals.\n" +
+                "\n" +
+                "\uD83D\uDCC8 Industry Leaders: Many of my followers are industry leaders, thought leaders, and experts in their respective fields. They bring valuable insights, expertise, and perspectives to our conversations, enriching our community with their knowledge and experience.\n" +
+                "\n" +
+                "\uD83C\uDF0D Global Network: My followers come from diverse backgrounds and locations around the world. They represent a global network of professionals, offering unique perspectives and cultural insights that contribute to our vibrant community.\n" +
+                "\n" +
+                "\uD83D\uDD0D Interested Learners: I'm grateful to have followers who are curious learners, eager to expand their knowledge and skills. They engage with my content, ask thoughtful questions, and actively participate in discussions, fostering a dynamic learning environment.\n" +
+                "\n" +
+                "\uD83E\uDD1D Collaborators and Supporters: Some of my followers are collaborators, partners, and supporters who share common interests and goals. Together, we collaborate on projects, exchange ideas, and support each other's professional endeavors, creating meaningful connections and opportunities for growth.");
         account.setName("John");
         account.setAge(23);
 //        account.setNumberOfPosts(NUMBER_OF_POSTS_PER_ACCOUNT);
@@ -151,7 +161,7 @@ public class BackendApplication {
                 "\n" +
                 "So what are you waiting for? Join the conversation and let's conquer the corporate world with vibrant energy and a nourished body and mind! \uD83D\uDCA5\uD83D\uDCBC");
         post4.setKeywords(Arrays.asList("healthanddiet ", "corporatewellness ", "prioritizeyourwellbeing ", "mindbodysoul ", "healthychoices"));
-        post4.setAuthor("Mati");
+        post4.setAuthor("John");
         PostStatistic postStatistic4 = new PostStatistic();
         postStatistic4.setNumberOfViews((int) (800 * 1.7));
         postStatistic4.setNumberOfLikes((int) (350 * 1.7));
@@ -182,7 +192,7 @@ public class BackendApplication {
                 "\n" +
                 "\uD83E\uDD57 Fuel your success with a healthy diet and watch your productivity soar! \uD83D\uDE80");
         post5.setKeywords(Arrays.asList("HealthyLifestyle  ", "CorporateWellness  ", "HealthyEating  ", "ProductivityBoost "));
-        post5.setAuthor("Mati");
+        post5.setAuthor("John");
         PostStatistic postStatistic5 = new PostStatistic();
         postStatistic5.setNumberOfViews((int) (800 * 1.9));
         postStatistic5.setNumberOfLikes((int) (350 * 1.9));
@@ -209,7 +219,7 @@ public class BackendApplication {
                 "\n" +
                 "Are you ready to take on the challenge and start incorporating healthier habits into your corporate lifestyle? Share your thoughts and ideas in the comments below! \uD83D\uDC47");
         post6.setKeywords(Arrays.asList("HealthFirst ", "CorporateWellness ", "EnergizeYourDay"));
-        post6.setAuthor("Mati");
+        post6.setAuthor("John");
         PostStatistic postStatistic6 = new PostStatistic();
         postStatistic6.setNumberOfViews((int) (800 * 1.8));
         postStatistic6.setNumberOfLikes((int) (350 * 1.8));

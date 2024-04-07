@@ -1,7 +1,6 @@
 package org.example.backend.db;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Max;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,7 +18,7 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Lob
-    @Column( length = 100000 )
+    @Column(length = 10000)
     private String content;
     @ElementCollection
     private List<String> keywords;
