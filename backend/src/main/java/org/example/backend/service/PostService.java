@@ -7,6 +7,7 @@ import org.example.backend.dto.mapper.PostMapper;
 import org.example.backend.dto.request.PostWriteDto;
 import org.example.backend.dto.respond.PostAndStatsReadDto;
 import org.example.backend.dto.respond.PostReadDto;
+import org.example.backend.dto.respond.PostStatisticReadDto;
 import org.example.backend.exception.custom.notfound.PostNotFound;
 import org.example.backend.repository.PostRepository;
 import org.springframework.stereotype.Service;
@@ -24,6 +25,7 @@ public class PostService {
     @Transactional
     public PostReadDto addPost(PostWriteDto postWriteDto) {
         Post post = postMapper.mapPostWriteDtoToPost(postWriteDto);
+        post.setAuthor("Author");
         Post savedPost = postRepository.save(post);
         return postMapper.mapPostToReadDto(savedPost);
     }
@@ -36,9 +38,26 @@ public class PostService {
 
     public List<PostAndStatsReadDto> getPosts() {
         List<PostAndStatsReadDto> postReadDtos = new ArrayList<>();
-        for (Post post : postRepository.findAllPosts()) {
-            postReadDtos.add(postMapper.mapToPostAndStatsReadDto(post, post.getPostStatistic()));
+        System.out.println(postRepository.findAll());
+        for (Post post : postRepository.findAll()) {
+            postReadDtos.add(postMapper.mapToPostAndStatsReadDto(post, post.getPostStatistic()==null?
+         new PostStatistic(
+                    0L,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0D,
+                    0,
+                    0,
+                    0D,
+                    0D,
+                    0D
+            ):post.getPostStatistic() ));
         }
+
+
+
         return postReadDtos;
     }
 }

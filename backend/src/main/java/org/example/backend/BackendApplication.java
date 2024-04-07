@@ -38,6 +38,22 @@ public class BackendApplication {
 
     public static Account generatePerson(ConfigurableApplicationContext context) {
         Account account = new Account();
+        account.setYourInfo("\uD83D\uDC4B Hello, I'm John! \uD83D\uDE80\n" +
+                "\n" +
+                "\uD83D\uDC68\u200D\uD83D\uDCBB Software Engineer | \uD83C\uDF31 Health Enthusiast | \uD83D\uDCDA Lifelong Learner\n" +
+                "\n" +
+                "\uD83D\uDD0D About Me:\n" +
+                "I'm a dedicated software engineer with 5 of experience in Web Development. I'm passionate about leveraging technology to solve complex problems and create innovative solutions that positively impact people's lives.\n" +
+                "\n" +
+                "\uD83C\uDF31 Health & Diet:\n" +
+                "Beyond coding, I have a deep interest in health, nutrition, and personal well-being. I believe that a healthy lifestyle is essential for peak performance, both professionally and personally. I enjoy sharing insights and tips on maintaining a balanced diet, staying active, and cultivating holistic wellness habits.\n" +
+                "\n" +
+                "\uD83D\uDCA1 Personal Growth:\n" +
+                "I'm a firm believer in continuous learning and personal growth. I'm always seeking opportunities to expand my knowledge, develop new skills, and challenge myself to reach new heights. Whether it's through books, courses, or networking with industry professionals, I'm committed to evolving both personally and professionally.\n" +
+                "\n" +
+                "\uD83D\uDCDD Let's Connect:\n" +
+                "If you share my passion for technology, health, or personal growth, I'd love to connect with you! Feel free to reach out, and let's explore how we can inspire and support each other on our respective journeys.");
+        account.setFollowerInfo("");
         account.setName("John");
         account.setAge(23);
 //        account.setNumberOfPosts(NUMBER_OF_POSTS_PER_ACCOUNT);

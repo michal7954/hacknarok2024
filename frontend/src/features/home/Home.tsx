@@ -1,40 +1,55 @@
 import React from 'react';
 import './Home.scss';
-import { Avatar, Fab } from '@mui/material';
+import { Fab } from '@mui/material';
 import PersonIcon from '@mui/icons-material/Person';
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
-import AddIcon from '@mui/icons-material/Add';
 import { useGetPostsQuery } from 'features/server/defaultApi';
-import Post from 'features/home/Post';
+import { useNavigate } from 'react-router';
+import Logo from 'components/Logo';
+import Post from './Post';
+import YoutubeSearchedForIcon from '@mui/icons-material/YoutubeSearchedFor';
+import NotificationImportantIcon from '@mui/icons-material/NotificationImportant';
 
 export default function Home() {
   const {data: posts } = useGetPostsQuery();
+  const navigate = useNavigate();
 
   return (
     <div className="home">
       <div className="header">
-        <div className="logo">
-          POST<br />
-          GENERATOR
-        </div>
+        <Logo />
         <nav className="nav">
           <Fab
             variant="extended"
             color="default"
             size="large"
           >
-            ADD EXISTING POST <AddIcon />
+            REVIEW <YoutubeSearchedForIcon />
           </Fab>
           <Fab
             variant="extended"
             color="default"
             size="large"
           >
+            GET TOPIC <NotificationImportantIcon />
+          </Fab>
+          <Fab
+            variant="extended"
+            color="default"
+            size="large"
+            onClick={() => navigate('/generate')}
+            className="generate-post"
+          >
             GENERATE NEW POST <AutoAwesomeIcon />
           </Fab>
-          <Avatar alt="Avatar" variant="circular" className="avatar">
+          <Fab
+            variant="circular"
+            color="default"
+            size="medium"
+            onClick={() => navigate('/userInfo')}
+          >
             <PersonIcon />
-          </Avatar>
+          </Fab>
         </nav>
       </div>
       <div className="posts">

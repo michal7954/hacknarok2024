@@ -22,7 +22,19 @@ public interface PostMapper {
     @Named("postStatisticReadDtoMapping")
     default PostStatisticReadDto map(PostStatistic postStatistic) {
         if (postStatistic == null) {
-            return null;
+            return new PostStatisticReadDto(
+                            0L,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0D,
+                    0,
+                    0,
+                    0D,
+                    0D,
+                    0D
+            );
         }
         return new PostStatisticReadDto(
                 postStatistic.getId(),

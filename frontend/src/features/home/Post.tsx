@@ -1,4 +1,3 @@
-import { PostType } from 'features/server/defaultApi';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import { CardContent } from '@mui/material';
@@ -6,6 +5,7 @@ import Chip from '@mui/material/Chip';
 import './Post.scss';
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import VisibilityIcon from '@mui/icons-material/Visibility';
+import { PostType } from 'features/server/Types';
 
 export default function Post({ post }: { post: PostType }) {
   return (
