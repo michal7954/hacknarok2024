@@ -95,7 +95,7 @@ public class BackendApplication {
         var postStatisticRepository = context.getBean(PostStatisticRepository.class);
         List<Post> posts = new ArrayList<>();
         Post post1 = new Post();
-        post1.setContent("Yesterday we took part in the competition of students' innovations using IT at AGH University of Science and Technology and our project was awarded by organizers and sponsors of hashtag#ITisMe conference. The project was received as useful in everyday life and with commercial potential. \"RentMe\" is for lending, inventorying and item management. Thank you for this opportunity to participate in such a great festival.");
+        post1.setContent("Yesterday we took part in the competition of students' innovations using IT at AGH University of Science and Technology and our project was awarded by organizers and sponsors of hashtag#ITisMe conference. \uD83C\uDFC6 The project was received as useful in everyday life and with commercial potential. \"RentMe\" is for lending, inventorying and item management. \uD83D\uDE80 Thank you for this opportunity to participate in such a great festival. \uD83C\uDF89\n");
         post1.setKeywords(Arrays.asList("AGH", "Innovation"));
         post1.setAuthor("John");
         PostStatistic postStatistic1 = new PostStatistic();
@@ -112,7 +112,13 @@ public class BackendApplication {
         post1.setPostStatistic(postStatisticRepository.save(postStatistic1));
 
         Post post2 = new Post();
-        post2.setContent("November 19-20, our team of 6 members took part in a hashtag#HackYeah2022 in Tauron Arena Kraków, we had been working 24 hours on a specific challenge and trying to solve it in the most effective way. We focused on Let's compost IT task. During 24 hours of intensive work, thanks to effective cooperation with Adam Wasylewicz on server-side application, we have done 65 commits, and we created a minimum viable product. Mariusz helped us with quick deployment to deliver applications in proper condition. Karolina made excellent design of our app, whereas frontend developers made client-side application based on created by Karolina design. Great atmosphere and new experience for us.");
+        post2.setContent("November 19-20, our team of 6 members took part in a hashtag#HackYeah2022 in Tauron Arena Kraków, \uD83C\uDFDF\uFE0F\n" +
+                "we had been working 24 hours on a specific challenge and trying to solve it in the most effective way. \uD83D\uDCBB \n" +
+                "We focused on Let's compost IT task. During 24 hours of intensive work, thanks to effective cooperation \n" +
+                "with Adam Wasylewicz on server-side application, we have done 65 commits, and we created a minimum viable product. \uD83D\uDE80 \n" +
+                "Mariusz helped us with quick deployment to deliver applications in proper condition. \uD83D\uDCBC Karolina made excellent design of \n" +
+                "our app, whereas frontend developers made client-side application based on created by Karolina design. \uD83C\uDFA8 Great atmosphere \n" +
+                "and new experience for us. \uD83D\uDC65");
         post2.setKeywords(Arrays.asList("HackYeah2022", "Kraków"));
         post2.setAuthor("John");
         PostStatistic postStatistic2 = new PostStatistic();
@@ -129,7 +135,7 @@ public class BackendApplication {
         post2.setPostStatistic(postStatisticRepository.save(postStatistic2));
 
         Post post3 = new Post();
-        post3.setContent("On December 9, 2022, we participate in the St. Barbara's day conference of AHG University of Science and Technology. This is one of the largest scientific event at the AGH, and it was an opportunity to present our scientific work. We were the 3rd place winners in the Computer Science section.");
+        post3.setContent("On December 9, 2022, we participated in the St. Barbara's day conference of AGH University of Science and Technology. \uD83D\uDCC5 This is one of the largest scientific events at AGH, and it was an opportunity to present our scientific work. \uD83C\uDF93 We were the 3rd place winners in the Computer Science section. \uD83E\uDD49\n");
         post3.setKeywords(Arrays.asList("AGH", "Scientific Event"));
         post3.setAuthor("John");
         PostStatistic postStatistic3 = new PostStatistic();
