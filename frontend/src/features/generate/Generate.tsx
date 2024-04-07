@@ -25,7 +25,7 @@ export default function Generate() {
       message,
       myStyle,
     }));
-    const { data /*...*/ } = await promise;
+    const { data } = await promise;
     dispatch(setGeneratedPosts(data || []));
     navigate('/choosePost');
   };
