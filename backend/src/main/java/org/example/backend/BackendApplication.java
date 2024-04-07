@@ -18,8 +18,8 @@ import java.util.Random;
 @SpringBootApplication
 public class BackendApplication {
     private static final Random random = new Random();
-    private final static Integer NUMBER_OF_ACCOUNTS = 3;
-    private final static Integer NUMBER_OF_POSTS_PER_ACCOUNT = 10;
+    private final static Integer NUMBER_OF_ACCOUNTS = 1;
+    private final static Integer NUMBER_OF_POSTS_PER_ACCOUNT = 3;
 
 
     public static void main(String[] args) {
@@ -40,13 +40,15 @@ public class BackendApplication {
         Account account = new Account();
         account.setName("Name " + random.nextInt(20));
         account.setAge(random.nextInt(50));
-        account.setNumberOfPosts(NUMBER_OF_POSTS_PER_ACCOUNT);
+        account.setYourInfo("");
+        account.setFollowerInfo("");
+//        account.setNumberOfPosts(NUMBER_OF_POSTS_PER_ACCOUNT);
         account.setNumberOfFollowers(random.nextInt(1000));
-        account.setNumberOfViews(random.nextInt(10000));
-        account.setNumberOfComments(random.nextInt(1000));
-        account.setNumberOfShares(random.nextInt(500));
+//        account.setNumberOfViews(random.nextInt(10000));
+//        account.setNumberOfComments(random.nextInt(1000));
+//        account.setNumberOfShares(random.nextInt(500));
 
-        List<Post> posts = generateRandomPosts(context);
+        List<Post> posts = generatePosts(context);
         account.setPosts(posts);
         return account;
     }
@@ -61,6 +63,38 @@ public class BackendApplication {
             post.setPostStatistic(postStatistic);
             posts.add(postRepository.save(post));
         }
+        return posts;
+    }
+
+    public static List<Post> generatePosts(ConfigurableApplicationContext context) {
+        var postRepository = context.getBean(PostRepository.class);
+        List<Post> posts = new ArrayList<>();
+        Post post1 = new Post();
+        post1.setContent("Yesterday we took part in the competition of students' innovations using IT at AGH University of Science and Technology and our project was awarded by organizers and sponsors of hashtag#ITisMe conference. The project was received as useful in everyday life and with commercial potential. \"RentMe\" is for lending, inventorying and item management. Thank you for this opportunity to participate in such a great festival.");
+        post1.setKeywords(Arrays.asList("Keyword " + random.nextInt(20),
+                "Keyword " + random.nextInt(20),
+                "Keyword " + random.nextInt(20)));
+        post1.setAuthor("Author");
+        post1.setPostStatistic(initPostStatisticsToDatabase(context));
+
+        Post post2 = new Post();
+        post2.setContent("November 19-20, our team of 6 members took part in a hashtag#HackYeah2022 in Tauron Arena Kraków, we had been working 24 hours on a specific challenge and trying to solve it in the most effective way. We focused on Let's compost IT task. During 24 hours of intensive work, thanks to effective cooperation with Adam Wasylewicz on server-side application, we have done 65 commits, and we created a minimum viable product. Mariusz helped us with quick deployment to deliver applications in proper condition. Karolina made excellent design of our app, whereas frontend developers made client-side application based on created by Karolina design. Great atmosphere and new experience for us.");
+        post2.setKeywords(Arrays.asList("Keyword " + random.nextInt(20),
+                "Keyword " + random.nextInt(20),
+                "Keyword " + random.nextInt(20)));
+        post2.setAuthor("Author");
+        post2.setPostStatistic(initPostStatisticsToDatabase(context));
+        Post post3 = new Post();
+        post3.setContent("On December 9, 2022, we participate in the St. Barbara's day conference of AHG University of Science and Technology. This is one of the largest scientific event at the AGH, and it was an opportunity to present our scientific work. We were the 3rd place winners in the Computer Science section.");
+        post3.setKeywords(Arrays.asList("Keyword " + random.nextInt(20),
+                "Keyword " + random.nextInt(20),
+                "Keyword " + random.nextInt(20)));
+        post3.setAuthor("Author");
+        post3.setPostStatistic(initPostStatisticsToDatabase(context));
+        posts.add(postRepository.save(post1));
+        posts.add(postRepository.save(post2));
+        posts.add(postRepository.save(post3));
+
         return posts;
     }
 
@@ -86,7 +120,7 @@ public class BackendApplication {
         post.setKeywords(Arrays.asList("Keyword " + random.nextInt(20),
                 "Keyword " + random.nextInt(20),
                 "Keyword " + random.nextInt(20)));
-        post.setAuthor("Author " + random.nextInt(20));
+        post.setAuthor("Author");
         return post;
     }
 }
