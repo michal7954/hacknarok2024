@@ -21,6 +21,8 @@ public class Account {
     private int age;
 //    private Integer numberOfPosts;
     private Integer numberOfFollowers;
+    private String yourInfo;
+    private String followerInfo;
 //    private Integer numberOfViews;
 //    private Integer numberOfComments;
 //    private Integer numberOfShares;

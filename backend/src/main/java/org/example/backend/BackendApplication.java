@@ -40,6 +40,8 @@ public class BackendApplication {
         Account account = new Account();
         account.setName("Name " + random.nextInt(20));
         account.setAge(random.nextInt(50));
+        account.setYourInfo("");
+        account.setFollowerInfo("");
 //        account.setNumberOfPosts(NUMBER_OF_POSTS_PER_ACCOUNT);
         account.setNumberOfFollowers(random.nextInt(1000));
 //        account.setNumberOfViews(random.nextInt(10000));
