@@ -4,6 +4,7 @@
 W aplikacji jest również opcja generowania czegoś innego o naszej codziennej twórczości, w proponowany styl przez generator. 
 </h4>
 
+<h2>https://www.linkedin.com/posts/patrykjanas27_hacknarok-eestec-winners-activity-7183157208472281088-vZ-Z?utm_source=share&utm_medium=member_desktop </h2>
 
 To start the up with frontend use:
 docker-compose -f .\docker-compose-local.yml up 
