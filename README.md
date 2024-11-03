@@ -1,10 +1,61 @@
-<h1>About our App</h1>:
+## About the app
 
-<h4>Nasza aplikacja "PostGenerator" służy do generowania nowych postów social mediów np. linkedin. Nasza aplikacja wyróżnia się tym, że z pomocą sztucznej inteligencji i uczenia maszynowego analizujemy nasze poprzednie posty pod kątem stylu ich pisania np. czy to jest styl formalny czy nieformalny. Po prowadzeniu kilku faktów na temat tworzonego posta do naszej aplikacji, generator tworzy 3 propozycje postów z których możemy wybrać jeden aby dodać do swojej twórczości.
-W aplikacji jest również opcja generowania czegoś innego o naszej codziennej twórczości, w proponowany styl przez generator. 
-</h4>
+Hackathon-winning ([LinkedIn post](https://www.linkedin.com/posts/patrykjanas27_hacknarok-eestec-winners-activity-7183157208472281088-vZ-Z?utm_source=share&utm_medium=member_desktop)), full-stack aplication supported by AI.\
+It's a cross-platform content management tool for internet creators that maximalizes a potential of generative AI in their everyday tasks.
 
-<h2>https://www.linkedin.com/posts/patrykjanas27_hacknarok-eestec-winners-activity-7183157208472281088-vZ-Z?utm_source=share&utm_medium=member_desktop </h2>
+## Frontend
+All fronted codebase has been developed by [Michael Madeja](https://github.com/michal7954).
 
-To start the up with frontend use:
-docker-compose -f .\docker-compose-local.yml up 
+Technical files worth mentioning:
+- Declarative definition of the complete app API using RTK Query - [file](https://github.com/michal7954/hacknarok2024/blob/master/frontend/src/features/server/defaultApi.ts). Example:
+```TS
+    getPosts: builder.query<Array<PostType>, void>({
+      query: () => ({
+        url: '/api/v1/author/posts',
+      }),
+      providesTags: ['Post'],
+    }),
+    addPost: builder.mutation<void, AddPostRequest>({
+      query: (body) => ({
+        url: '/api/v1/author/posts',
+        method: 'POST',
+        body,
+      }),
+      invalidatesTags: ['Post'],
+    }),
+```
+Usage:
+```TS
+const { data: posts } = useGetPostsQuery();
+const [ addPost ] = useAddPostMutation();
+
+onClick={() => addPost({
+  content: text,
+})}
+```
+
+- Uncommon approach for triggering server state mutation in [file](https://github.com/michal7954/hacknarok2024/blob/master/frontend/src/features/generate/Generate.tsx):
+```TS
+  const [ message, setMessage ] = React.useState('');
+  const [ isLoading, setIsLoading ] = React.useState(false);
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
+  const handleGenerate = async () => {
+    setIsLoading(true);
+    dispatch(setMessageToState(message));
+    const promise = dispatch(defaultApi.endpoints.getGeneratedPosts.initiate({
+      message,
+      myStyle,
+    }));
+    const { data } = await promise;
+    dispatch(setGeneratedPosts(data || []));
+    navigate('/choosePost');
+  };
+```
+
+## Development
+To start up the project use:
+```
+docker-compose -f .\docker-compose-local.yml up
+```
